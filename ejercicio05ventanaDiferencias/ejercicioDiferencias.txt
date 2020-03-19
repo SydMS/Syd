@@ -1,0 +1,30 @@
+Ejercicio Juego Diferencias - Aplicación de Ventanas
+
+Ejercicio diferencias
+
+tomando como ejemplo el programa mostrado crear un nuevo programa para 
+
+1 - Aumentar las diferencias de 2 a 5
+
+2 - Calcular el tiempo en que tarda en adivinarlas
+
+Opcionales:
+
++ Buscar en internet ejemplos para mostrar un message box en python tkinter, para que nuestra aplicacion felicite al usuario
+
+  con una pequeña ventana emergente
+
++ Usar una ventana emergente para indicar al usuario que debe hacer cuando arranque la aplicacion.
+
+Opcionales más avanzados:
+
++ Felicitar al usuario cuando haya adivinado las 3 diferencias. Idicarle cuando ha adivinado una diferencia si aun le quedan mas por adivinar,
+  e indicarle si no ha adivinado ninguno o si pincha en una ya adivinada
+
++ buscar en internet ejemplos para poder pedir al usuario su nombre cuando arranque la aplicación a traves de una ventana de texto emergente
+
++ Buscar en internet un ejemplo sobre cómo escribir en un archivo de texto, cuando el usuario haya resuelto la ultima diferencia
+
+  guardaremos en un archivo de texto el nombre del usuario y el tiempo tardado
+
++ listar al arrancar la aplicacion el nombre y el tiempo tardado de cada usuario guardados en el archivo del punto anterior
