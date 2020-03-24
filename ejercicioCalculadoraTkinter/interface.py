@@ -78,7 +78,7 @@ class Interfaz:
         ventana.bind("<Return>",self.keyEnter)
         ventana.bind("<BackSpace>",self.keyDel)
          
-    #Definimos las funciones para esas teclas (Pendiente mejorar)
+    #Definimos los métodos para esas teclas (Pendiente mejorar)
     def key1(self,_event=None):
             self.clickar(1, escribir=True)
              
@@ -130,7 +130,7 @@ class Interfaz:
     def keyDel(self,_event=None):
             self.clickar("Del",escribir=False)
             
-    #Fin de las funciones para el teclado
+    #Fin de los métodos para el teclado
      
     #Definimos un módulo para generar los diferentes botones
     def boton(self,valor,escribir=True,ancho=9,alto=1,size=12):
