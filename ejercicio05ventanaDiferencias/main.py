@@ -12,11 +12,9 @@ Ejercicio Diferencias
 from tkinter import *
 from tkinter import messagebox
 import time
+import os
 
-#Genero la ventana para el listado
-listado = Tk()
 
-listado.title('Listado de participantes')
 
 #Declaro variables
 listArchivo = None
@@ -29,34 +27,42 @@ t_respuesta = 0.0
 nombreUsuario = None
 
 #Abro el archivo
-archivo = open("log.txt","r")
-listArchivo = archivo.read().split(";")
-
-#Extraigo cada una de las partidas
-for l in listArchivo:
-    listaCampos += l.split(",")
-#end for
-
-#Elimino el último valor, ya que se carga con un último elmento vacío
-listaCampos.pop()
-
-#Separo el usuario del tiempo
-num=0
-for i in listaCampos:
-    if num%2:
-        ind = listaCampos[num].index(":")
-        nombre = listaCampos[num][ind+1:]
-        Label(listado, text="Usuario: " + nombre).pack()
-        num += 1
-    else:
-        ind = listaCampos[num].index(":")
-        tiempo = listaCampos[num][ind+1:]
-        Label(listado, text="Tiempo: " + tiempo).pack()
-        num += 1
-#end for
-
-#Ejecuto la ventan
-listado.mainloop()
+if os.path.isfile("log.txt"):
+    #Genero la ventana para el listado
+    listado = Tk()
+    
+    listado.title('Listado de participantes')
+    
+    archivo = open("log.txt","r")
+    listArchivo = archivo.read().split(";")
+    
+    #Extraigo cada una de las partidas
+    for l in listArchivo:
+        listaCampos += l.split(",")
+    #end for
+    
+    #Elimino el último valor, ya que se carga con un último elmento vacío
+    listaCampos.pop()
+    
+    #Separo el usuario del tiempo
+    num=0
+    for i in listaCampos:
+        if num%2:
+            ind = listaCampos[num].index(":")
+            nombre = listaCampos[num][ind+1:]
+            Label(listado, text="Tiempo: " + nombre).pack()
+            num += 1
+        else:
+            ind = listaCampos[num].index(":")
+            tiempo = listaCampos[num][ind+1:]
+            Label(listado, text="Usuario: " + tiempo).pack()
+            num += 1
+    #end for
+    
+    #Ejecuto la ventan
+    listado.mainloop()
+else:
+    pass
 
 #Función para recoger el nombre del usuario
 def recoger_nombre():
@@ -197,5 +203,3 @@ ventana.bind("<Button 1>",click_raton)
 #Le damos a la ventana una función para que se ejecute al clickar
 #Button 1 es el click izquierdo del ratón
 ventana.mainloop()
-
-
