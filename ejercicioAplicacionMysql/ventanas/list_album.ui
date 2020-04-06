@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>647</width>
+    <height>415</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Directorio musical</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="principal_widget">
+   <widget class="QGraphicsView" name="gph_background">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-20</y>
+      <width>671</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/background/ini_background.jpg);background-repeat: no-repeat; background-position: center;</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="combo_list_banda_album">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tbl_listado_album">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>20</y>
+      <width>431</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <row>
+     <property name="text">
+      <string>fila1</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>prueba</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>prueba2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>prueba3</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>prueba4</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>celda 1</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>celda2</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>celda3</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>celda4</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>647</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDirectorio_musical">
+    <property name="title">
+     <string>Directorio musical</string>
+    </property>
+    <addaction name="actionIncluir_artista_banda"/>
+    <addaction name="actionIncluir_disco"/>
+    <addaction name="actionIncluir_genero"/>
+   </widget>
+   <widget class="QMenu" name="menuListados">
+    <property name="title">
+     <string>Listados</string>
+    </property>
+    <addaction name="actionListar_artistas_bandas"/>
+    <addaction name="actionListar_discos"/>
+    <addaction name="actionListar_generos"/>
+   </widget>
+   <addaction name="menuDirectorio_musical"/>
+   <addaction name="menuListados"/>
+  </widget>
+  <widget class="QStatusBar" name="barra_estado"/>
+  <action name="actionIncluir_artista_banda">
+   <property name="text">
+    <string>Incluir artista/banda</string>
+   </property>
+  </action>
+  <action name="actionIncluir_disco">
+   <property name="text">
+    <string>Incluir disco</string>
+   </property>
+  </action>
+  <action name="actionIncluir_genero">
+   <property name="text">
+    <string>Incluir género</string>
+   </property>
+  </action>
+  <action name="actionListar_artistas_bandas">
+   <property name="text">
+    <string>Listar artistas/bandas</string>
+   </property>
+  </action>
+  <action name="actionListar_discos">
+   <property name="text">
+    <string>Listar discos</string>
+   </property>
+  </action>
+  <action name="actionListar_generos">
+   <property name="text">
+    <string>Listar géneros</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../images/css.qrc"/>
+ </resources>
+ <connections/>
+</ui>

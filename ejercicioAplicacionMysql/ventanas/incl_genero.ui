@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>647</width>
+    <height>415</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Directorio musical</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="principal_widget">
+   <widget class="QGraphicsView" name="gph_background">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-20</y>
+      <width>671</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url('images/ini_background.jpg');background-repeat: no-repeat; background-position: center;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_nom_genero">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>50</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: grey;
+color:white;
+border: 2px solid black;
+border-radius:5px;</string>
+    </property>
+    <property name="text">
+     <string>Género musical</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_nom_genero">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>50</y>
+      <width>341</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f2f2f2;
+color:white;
+border: 2px solid black;
+border-radius:5px;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_incluir_genero">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>310</y>
+      <width>101</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid black;
+border-radius:5px;
+color:white;
+background-color:black;</string>
+    </property>
+    <property name="text">
+     <string>Incluir</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>647</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDirectorio_musical">
+    <property name="title">
+     <string>Directorio musical</string>
+    </property>
+    <addaction name="actionIncluir_artista_banda"/>
+    <addaction name="actionIncluir_disco"/>
+    <addaction name="actionIncluir_genero"/>
+   </widget>
+   <widget class="QMenu" name="menuListados">
+    <property name="title">
+     <string>Listados</string>
+    </property>
+    <addaction name="actionListar_artistas_bandas"/>
+    <addaction name="actionListar_discos"/>
+    <addaction name="actionListar_generos"/>
+   </widget>
+   <addaction name="menuDirectorio_musical"/>
+   <addaction name="menuListados"/>
+  </widget>
+  <widget class="QStatusBar" name="barra_estado"/>
+  <action name="actionIncluir_artista_banda">
+   <property name="text">
+    <string>Incluir artista/banda</string>
+   </property>
+  </action>
+  <action name="actionIncluir_disco">
+   <property name="text">
+    <string>Incluir disco</string>
+   </property>
+  </action>
+  <action name="actionIncluir_genero">
+   <property name="text">
+    <string>Incluir género</string>
+   </property>
+  </action>
+  <action name="actionListar_artistas_bandas">
+   <property name="text">
+    <string>Listar artistas/bandas</string>
+   </property>
+  </action>
+  <action name="actionListar_discos">
+   <property name="text">
+    <string>Listar discos</string>
+   </property>
+  </action>
+  <action name="actionListar_generos">
+   <property name="text">
+    <string>Listar géneros</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../images/css.qrc"/>
+ </resources>
+ <connections/>
+</ui>
