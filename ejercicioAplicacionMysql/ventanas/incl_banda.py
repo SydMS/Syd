@@ -71,23 +71,12 @@ class Ventana_Incluir_Banda():
         font = QtGui.QFont()
         font.setPointSize(12)
         self.btn_incluir_banda.setFont(font)
-        self.btn_incluir_banda.setStyleSheet("border: 2px solid black;\n"
-                                            "border-radius:5px;\n"
-                                            "background: rgb(255,255,255, 0.8);"
+        self.btn_incluir_banda.setStyleSheet("border: 2px solid black;"
+                                            "border-radius:5px;"
+                                            "background: rgb(255,255,255);"
                                             "color:black;")
         self.btn_incluir_banda.setObjectName("btn_incluir_banda")
         MainWindow.setCentralWidget(self.principal_widget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 647, 21))
-        self.menubar.setObjectName("menubar")
-        self.menuDirectorio_musical = QtWidgets.QMenu(self.menubar)
-        self.menuDirectorio_musical.setObjectName("menuDirectorio_musical")
-        self.menuListados = QtWidgets.QMenu(self.menubar)
-        self.menuListados.setObjectName("menuListados")
-        MainWindow.setMenuBar(self.menubar)
-        self.barra_estado = QtWidgets.QStatusBar(MainWindow)
-        self.barra_estado.setObjectName("barra_estado")
-        MainWindow.setStatusBar(self.barra_estado)
         self.actionIncluir_artista_banda = QtWidgets.QAction(MainWindow)
         self.actionIncluir_artista_banda.setObjectName("actionIncluir_artista_banda")
         self.actionIncluir_disco = QtWidgets.QAction(MainWindow)
@@ -100,14 +89,6 @@ class Ventana_Incluir_Banda():
         self.actionListar_discos.setObjectName("actionListar_discos")
         self.actionListar_generos = QtWidgets.QAction(MainWindow)
         self.actionListar_generos.setObjectName("actionListar_generos")
-        self.menuDirectorio_musical.addAction(self.actionIncluir_artista_banda)
-        self.menuDirectorio_musical.addAction(self.actionIncluir_disco)
-        self.menuDirectorio_musical.addAction(self.actionIncluir_genero)
-        self.menuListados.addAction(self.actionListar_artistas_bandas)
-        self.menuListados.addAction(self.actionListar_discos)
-        self.menuListados.addAction(self.actionListar_generos)
-        self.menubar.addAction(self.menuDirectorio_musical.menuAction())
-        self.menubar.addAction(self.menuListados.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -119,8 +100,6 @@ class Ventana_Incluir_Banda():
         self.lbl_nom_band.setText(_translate("MainWindow", "Nombre artista/banda"))
         self.lbl_nom_pais.setText(_translate("MainWindow", "País"))
         self.btn_incluir_banda.setText(_translate("MainWindow", "Incluir"))
-        self.menuDirectorio_musical.setTitle(_translate("MainWindow", "Directorio musical"))
-        self.menuListados.setTitle(_translate("MainWindow", "Listados"))
         self.actionIncluir_artista_banda.setText(_translate("MainWindow", "Incluir artista/banda"))
         self.actionIncluir_disco.setText(_translate("MainWindow", "Incluir disco"))
         self.actionIncluir_genero.setText(_translate("MainWindow", "Incluir género"))

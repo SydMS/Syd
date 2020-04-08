@@ -7,7 +7,7 @@ Sentencias SQL para la aplicación Directorio Musical creada con QtDesigner
 
 '''
 
-SQL_INSERCION_BANDA = """INSERT INTO tbl_artistas_bandas (nombre, pais_procedencia
+SQL_INSERCION_BANDA = """INSERT INTO tbl_artistas_bandas (nombre, pais_procedencia)
                          VALUES (%s, %s);"""
 
 SQL_INSERCION_ALBUM = """INSERT INTO tbl_album (id_artista,id_genero,nombre,num_pistas,year)

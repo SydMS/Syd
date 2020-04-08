@@ -45,18 +45,11 @@ class VentanaPrincipalAplicación(QMainWindow):
     #end __init__
         
     def incluir_banda(self):
+        
         #Se genera ui_incl_banda que contendrá la ventana para incluir bandas
         self.ui_incl_banda = Ventana_Incluir_Banda()
-        self.ui_incl_banda.setupUi(self) 
-        #Funciones para los botones del menú
-        self.ui_incl_banda.actionIncluir_artista_banda.triggered.connect(self.incluir_banda)
-        self.ui_incl_banda.actionIncluir_genero.triggered.connect(self.incluir_genero)
-        self.ui_incl_banda.actionIncluir_disco.triggered.connect(self.incluir_disco)
-        self.ui_incl_banda.actionListar_generos.triggered.connect(self.listar_generos)
-        self.ui_incl_banda.actionListar_artistas_bandas.triggered.connect(self.listar_banda)
-        self.ui_incl_banda.actionListar_discos.triggered.connect(self.listar_discos)
-        
-        #Mostramos la ventana       
+        self.ui_incl_banda.setupUi(self)
+        #Mostramos la ventana        
         self.show()
         
         #Cuando se clicke en el botón se llama a la función para guardar en la bd
@@ -76,40 +69,26 @@ class VentanaPrincipalAplicación(QMainWindow):
             Insertar_Banda(banda)
         #end if
         
-        #Reseteamos los cambios de texto
-        self.ui_incl_banda.txt_nom_band.setText("")
-        self.ui_incl_banda.txt_nom_pais.setText("")
         #Mostramos al usuario que se ha realizado el registro
         QMessageBox.about(self, "Información", "Registro realizado.")
     #end click_incluir_banda
+        
+        #Reseteamos la pantalla
+        self.incluir_banda()
     
     def listar_banda(self):
         #Se genera ui_list_banda que contendrá la ventana para listar las bandas
         self.ui_list_banda = Ventana_Listar_Banda()
         self.ui_list_banda.setupUi(self)
-        #Funciones para los botones del menú
-        self.ui_list_banda.actionIncluir_artista_banda.triggered.connect(self.incluir_banda)
-        self.ui_list_banda.actionIncluir_genero.triggered.connect(self.incluir_genero)
-        self.ui_list_banda.actionIncluir_disco.triggered.connect(self.incluir_disco)
-        self.ui_list_banda.actionListar_generos.triggered.connect(self.listar_generos)
-        self.ui_list_banda.actionListar_artistas_bandas.triggered.connect(self.listar_banda)
-        self.ui_list_banda.actionListar_discos.triggered.connect(self.listar_discos)
-               
+        #Mostramos la ventana
         self.show()
     #end listar_banda
         
     def incluir_genero(self):
+
         #Se genera ui_incl_banda que contendrá la ventana para incluir generos
         self.ui_incl_genero = Ventana_Incluir_Genero()
         self.ui_incl_genero.setupUi(self) 
-        #Funciones para los botones del menú
-        self.ui_incl_genero.actionIncluir_artista_banda.triggered.connect(self.incluir_banda)
-        self.ui_incl_genero.actionIncluir_genero.triggered.connect(self.incluir_genero)
-        self.ui_incl_genero.actionIncluir_disco.triggered.connect(self.incluir_disco)
-        self.ui_incl_genero.actionListar_generos.triggered.connect(self.listar_generos)
-        self.ui_incl_genero.actionListar_artistas_bandas.triggered.connect(self.listar_banda)
-        self.ui_incl_genero.actionListar_discos.triggered.connect(self.listar_discos)
-        
         #Mostramos la ventana       
         self.show()
         
@@ -138,13 +117,6 @@ class VentanaPrincipalAplicación(QMainWindow):
         #Se genera ui_list_banda que contendrá la ventana para incluir bandas
         self.ui_list_genero = Ventana_Listar_Generos()
         self.ui_list_genero.setupUi(self)
-        #Funciones para los botones del menú
-        self.ui_list_genero.actionIncluir_artista_banda.triggered.connect(self.incluir_banda)
-        self.ui_list_genero.actionIncluir_genero.triggered.connect(self.incluir_genero)
-        self.ui_list_genero.actionIncluir_disco.triggered.connect(self.incluir_disco)
-        self.ui_list_genero.actionListar_generos.triggered.connect(self.listar_generos)
-        self.ui_list_genero.actionListar_artistas_bandas.triggered.connect(self.listar_banda)
-        self.ui_list_genero.actionListar_discos.triggered.connect(self.listar_discos)
 
         #Mostramos la ventana       
         self.show()
@@ -154,14 +126,6 @@ class VentanaPrincipalAplicación(QMainWindow):
         #Se genera ui_incl_disco que contendrá la ventana para incluir los discos
         self.ui_incl_disco = Ventana_Incluir_Disco()
         self.ui_incl_disco.setupUi(self) 
-        #Funciones para los botones del menú
-        self.ui_incl_disco.actionIncluir_artista_banda.triggered.connect(self.incluir_banda)
-        self.ui_incl_disco.actionIncluir_genero.triggered.connect(self.incluir_genero)
-        self.ui_incl_disco.actionIncluir_disco.triggered.connect(self.incluir_disco)
-        self.ui_incl_disco.actionListar_generos.triggered.connect(self.listar_generos)
-        self.ui_incl_disco.actionListar_artistas_bandas.triggered.connect(self.listar_banda)
-        self.ui_incl_disco.actionListar_discos.triggered.connect(self.listar_discos)
-        
         #Mostramos la ventana       
         self.show()
         
@@ -183,7 +147,7 @@ class VentanaPrincipalAplicación(QMainWindow):
         disco.genero = Obtener_ID_Genero(disco.genero)
         disco.num_pistas = self.ui_incl_disco.txt_disco_num_pistas.text()
         disco.year = self.ui_incl_disco.date_disco_anho_publicacion.text()
-        #Formateamos la fecha para que coincida con la bbdd
+        #Damos formato a la fecha
         disco.year = datetime.strptime(disco.year,'%d/%m/%Y')
         disco.year = datetime.strftime(disco.year,'%Y-%m-%d')  
         
@@ -192,26 +156,16 @@ class VentanaPrincipalAplicación(QMainWindow):
             Insertar_Album(disco)
         #end if
         
-        #Reseteamos los cambios de texto
-        self.ui_incl_disco.combo_disco_nom_banda.setCurrentText("Agnes Obel")
-        self.ui_incl_disco.txt_disco_nom_album.setText("")
-        self.ui_incl_disco.combo_disco_genero.setCurrentText("Blues")
-        self.ui_incl_disco.txt_disco_num_pistas.setText("")
-        #Mostramos al usuario que se ha realizado el registro
         QMessageBox.about(self, "Información", "Registro realizado.")
+        #╔Reseteamos los valores
+        self.incluir_disco()
     #end click_incluir_disco
+
         
     def listar_discos(self):
         #Se genera ui_list_banda que contendrá la ventana para incluir bandas
         self.ui_list_discos = Ventana_Listar_Discos()
         self.ui_list_discos.setupUi(self)
-        #Funciones para los botones del menú
-        self.ui_list_discos.actionIncluir_artista_banda.triggered.connect(self.incluir_banda)
-        self.ui_list_discos.actionIncluir_genero.triggered.connect(self.incluir_genero)
-        self.ui_list_discos.actionIncluir_disco.triggered.connect(self.incluir_disco)
-        self.ui_list_discos.actionListar_generos.triggered.connect(self.listar_generos)
-        self.ui_list_discos.actionListar_artistas_bandas.triggered.connect(self.listar_banda)
-        self.ui_list_discos.actionListar_discos.triggered.connect(self.listar_discos)
 
         #Mostramos la ventana       
         self.show()

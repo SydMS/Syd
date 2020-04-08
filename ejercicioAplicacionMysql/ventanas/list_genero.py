@@ -36,17 +36,6 @@ class Ventana_Listar_Generos(object):
             i += 1
         #end while
         MainWindow.setCentralWidget(self.principal_widget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 647, 21))
-        self.menubar.setObjectName("menubar")
-        self.menuDirectorio_musical = QtWidgets.QMenu(self.menubar)
-        self.menuDirectorio_musical.setObjectName("menuDirectorio_musical")
-        self.menuListados = QtWidgets.QMenu(self.menubar)
-        self.menuListados.setObjectName("menuListados")
-        MainWindow.setMenuBar(self.menubar)
-        self.barra_estado = QtWidgets.QStatusBar(MainWindow)
-        self.barra_estado.setObjectName("barra_estado")
-        MainWindow.setStatusBar(self.barra_estado)
         self.actionIncluir_artista_banda = QtWidgets.QAction(MainWindow)
         self.actionIncluir_artista_banda.setObjectName("actionIncluir_artista_banda")
         self.actionIncluir_disco = QtWidgets.QAction(MainWindow)
@@ -59,14 +48,6 @@ class Ventana_Listar_Generos(object):
         self.actionListar_discos.setObjectName("actionListar_discos")
         self.actionListar_generos = QtWidgets.QAction(MainWindow)
         self.actionListar_generos.setObjectName("actionListar_generos")
-        self.menuDirectorio_musical.addAction(self.actionIncluir_artista_banda)
-        self.menuDirectorio_musical.addAction(self.actionIncluir_disco)
-        self.menuDirectorio_musical.addAction(self.actionIncluir_genero)
-        self.menuListados.addAction(self.actionListar_artistas_bandas)
-        self.menuListados.addAction(self.actionListar_discos)
-        self.menuListados.addAction(self.actionListar_generos)
-        self.menubar.addAction(self.menuDirectorio_musical.menuAction())
-        self.menubar.addAction(self.menuListados.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -86,8 +67,6 @@ class Ventana_Listar_Generos(object):
             indice += 1
         #end for
         self.lst_listar_genero.setSortingEnabled(__sortingEnabled)
-        self.menuDirectorio_musical.setTitle(_translate("MainWindow", "Directorio musical"))
-        self.menuListados.setTitle(_translate("MainWindow", "Listados"))
         self.actionIncluir_artista_banda.setText(_translate("MainWindow", "Incluir artista/banda"))
         self.actionIncluir_disco.setText(_translate("MainWindow", "Incluir disco"))
         self.actionIncluir_genero.setText(_translate("MainWindow", "Incluir género"))
