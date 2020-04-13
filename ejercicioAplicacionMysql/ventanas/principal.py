@@ -9,7 +9,6 @@ Ventana Bienvenida
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ventana_Bienvenida(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")

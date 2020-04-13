@@ -25,13 +25,15 @@ class Ventana_Listar_Banda(object):
         self.gph_background.setStyleSheet("background-image: url(\'images/ini_background.jpg\');background-repeat: no-repeat; background-position: center;")
         self.gph_background.setObjectName("gph_background")
         self.tbl_listado_artistas = QtWidgets.QTableWidget(self.principal_widget)
-        self.tbl_listado_artistas.setGeometry(QtCore.QRect(140, 20, 351, 341))
+        self.tbl_listado_artistas.setGeometry(QtCore.QRect(10, 20, 481, 341))
         self.tbl_listado_artistas.setObjectName("tbl_listado_artistas")
         self.tbl_listado_artistas.setStyleSheet("background: rgb(0,0,0, 0.8);"
                                                 "color:white;"
                                                 "border: 2px solid black;\n"
                                                 "border-radius:5px;")
         self.tbl_listado_artistas.setColumnCount(2)
+        self.tbl_listado_artistas.setColumnWidth(0,250)
+        self.tbl_listado_artistas.setColumnWidth(1,202)
         self.tbl_listado_artistas.setRowCount(len(self.listado_bandas))
         #Generamos tantas cabeceras para las filas como resultados tengamos.
         for i in range(0,len(self.listado_bandas)):
@@ -51,6 +53,10 @@ class Ventana_Listar_Banda(object):
                 self.tbl_listado_artistas.setItem(i, j, item)
             #end for
         #end for
+        self.btn_modificar_banda = QtWidgets.QPushButton(self.principal_widget)
+        self.btn_modificar_banda.setGeometry(QtCore.QRect(0, 0, 0, 0))
+        self.btn_eliminar_banda = QtWidgets.QPushButton(self.principal_widget)
+        self.btn_eliminar_banda.setGeometry(QtCore.QRect(0, 0, 0, 0))
         MainWindow.setCentralWidget(self.principal_widget)
         self.actionIncluir_artista_banda = QtWidgets.QAction(MainWindow)
         self.actionIncluir_artista_banda.setObjectName("actionIncluir_artista_banda")
@@ -67,6 +73,8 @@ class Ventana_Listar_Banda(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+            
     #end setupUi
     
     def retranslateUi(self, MainWindow):
@@ -97,4 +105,24 @@ class Ventana_Listar_Banda(object):
         self.actionListar_discos.setText(_translate("MainWindow", "Listar discos"))
         self.actionListar_generos.setText(_translate("MainWindow", "Listar géneros"))
     #end restranslateUi
+    
+    def modificar_eliminar(self):
+        _translate = QtCore.QCoreApplication.translate
+        self.btn_modificar_banda.setGeometry(QtCore.QRect(520, 290, 101, 31))
+        self.btn_modificar_banda.setObjectName("btn_modificar_banda")
+        self.btn_modificar_banda.setStyleSheet("border: 2px solid black;"
+                                                "border-radius:5px;"
+                                                "background: rgb(255,255,255);"
+                                                "color:black;"
+                                                "font: 13px")            
+        self.btn_eliminar_banda.setGeometry(QtCore.QRect(520, 330, 101, 31))
+        self.btn_eliminar_banda.setObjectName("btn_eliminar_banda")
+        self.btn_eliminar_banda.setStyleSheet("border: 2px solid black;"
+                                            "border-radius:5px;"
+                                            "background: rgb(255,255,255);"
+                                            "color:black;"
+                                            "font: 13px")
+        self.btn_modificar_banda.setText(_translate("MainWindow", "Modificar"))
+        self.btn_eliminar_banda.setText(_translate("MainWindow", "Eliminar"))
+    #end modificar_eliminar
 #end Ventana_Listar_Banda

@@ -26,7 +26,7 @@ class Ventana_Listar_Discos(object):
         self.gph_background.setStyleSheet("background-image: url(\'images/ini_background.jpg\');background-repeat: no-repeat; background-position: center;")
         self.gph_background.setObjectName("gph_background")
         self.combo_list_banda_album = QtWidgets.QComboBox(self.principal_widget)
-        self.combo_list_banda_album.setGeometry(QtCore.QRect(30, 20, 151, 22))
+        self.combo_list_banda_album.setGeometry(QtCore.QRect(470, 20, 151, 22))
         self.combo_list_banda_album.setObjectName("combo_list_banda_album")
         self.combo_list_banda_album.setStyleSheet("background: rgb(0,0,0, 0.8);"
                                                   "color:white;"
@@ -39,13 +39,17 @@ class Ventana_Listar_Discos(object):
             i += 1
         #end while
         self.tbl_listado_album = QtWidgets.QTableWidget(self.principal_widget)
-        self.tbl_listado_album.setGeometry(QtCore.QRect(190, 20, 431, 341))
+        self.tbl_listado_album.setGeometry(QtCore.QRect(10, 20, 431, 341))
         self.tbl_listado_album.setObjectName("tbl_listado_album")
         self.tbl_listado_album.setStyleSheet("background: rgb(0,0,0, 0.8);"
                                               "color:white;"
                                               "border: 2px solid black;\n"
                                               "border-radius:5px;")
         self.tbl_listado_album.setColumnCount(4)
+        self.tbl_listado_album.setColumnWidth(0,173)
+        self.tbl_listado_album.setColumnWidth(1,70)
+        self.tbl_listado_album.setColumnWidth(2,100)
+        self.tbl_listado_album.setColumnWidth(3,80)
         self.tbl_listado_album.setRowCount(1)
         item = QtWidgets.QTableWidgetItem()
         self.tbl_listado_album.setHorizontalHeaderItem(0, item)
@@ -57,6 +61,10 @@ class Ventana_Listar_Discos(object):
         self.tbl_listado_album.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tbl_listado_album.setVerticalHeaderItem(0, item)
+        self.btn_modificar_disco = QtWidgets.QPushButton(self.principal_widget)
+        self.btn_modificar_disco.setGeometry(QtCore.QRect(0, 0, 0, 0))
+        self.btn_eliminar_disco = QtWidgets.QPushButton(self.principal_widget)
+        self.btn_eliminar_disco.setGeometry(QtCore.QRect(0, 0, 0, 0))
         MainWindow.setCentralWidget(self.principal_widget)
         self.actionIncluir_artista_banda = QtWidgets.QAction(MainWindow)
         self.actionIncluir_artista_banda.setObjectName("actionIncluir_artista_banda")
@@ -103,11 +111,17 @@ class Ventana_Listar_Discos(object):
         self.actionListar_artistas_bandas.setText(_translate("MainWindow", "Listar artistas/bandas"))
         self.actionListar_discos.setText(_translate("MainWindow", "Listar discos"))
         self.actionListar_generos.setText(_translate("MainWindow", "Listar géneros"))
+        
     #end retranslateUi  
-    def mostrar_discos(self):
+    def mostrar_discos(self,nom_banda = 0):
+        #Este método podrá recibir el nombre de la banda que debe mostrar
         _translate = QtCore.QCoreApplication.translate
         #Cargamos en la variable nom_banda la selección del usuario
-        nom_banda = self.combo_list_banda_album.currentText()
+        if nom_banda == 0:
+            #Si no se ha recibido ninguno, mostrará el que esté seleccionado
+            nom_banda = self.combo_list_banda_album.currentText()
+        else:
+            pass
         #Obtenemos, a través de una consulta, el ID de la banda
         id_banda = Obtener_ID_Banda(nom_banda)
         #discos será una tupla que contendrá el listado completo de discos
@@ -145,5 +159,30 @@ class Ventana_Listar_Discos(object):
             j = 0
             #end for
         #end for
+        
     #end mostrar_discos
+    def modificar_eliminar_disco(self, mostrar):
+        
+        if mostrar == True:
+            _translate = QtCore.QCoreApplication.translate
+            self.btn_modificar_disco.setGeometry(QtCore.QRect(490, 290, 101, 31))
+            self.btn_modificar_disco.setObjectName("btn_modificar_disco")
+            self.btn_modificar_disco.setStyleSheet("border: 2px solid black;"
+                                                    "border-radius:5px;"
+                                                    "background: rgb(255,255,255);"
+                                                    "color:black;"
+                                                    "font: 13px")            
+            self.btn_eliminar_disco.setGeometry(QtCore.QRect(490, 330, 101, 31))
+            self.btn_eliminar_disco.setObjectName("btn_eliminar_disco")
+            self.btn_eliminar_disco.setStyleSheet("border: 2px solid black;"
+                                                "border-radius:5px;"
+                                                "background: rgb(255,255,255);"
+                                                "color:black;"
+                                                "font: 13px")
+            self.btn_modificar_disco.setText(_translate("MainWindow", "Modificar"))
+            self.btn_eliminar_disco.setText(_translate("MainWindow", "Eliminar"))
+        elif mostrar == False:
+            self.btn_modificar_disco.setGeometry(QtCore.QRect(0, 0, 0, 0))
+            self.btn_eliminar_disco.setGeometry(QtCore.QRect(0, 0, 0, 0))
+    #end modificar_eliminar
 #end Ventana_Listar_Discos
